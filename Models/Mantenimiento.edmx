@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Mantenimiento_model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cargo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cargo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="departamento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="40" />
+          <Property Name="nombre" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="40" />
+          <Property Name="nombre" Type="varchar" MaxLength="40" />
+          <Property Name="apellido" Type="varchar" MaxLength="40" />
+          <Property Name="telefono" Type="varchar" MaxLength="40" />
+          <Property Name="departamento" Type="int" />
+          <Property Name="cargo" Type="int" />
+          <Property Name="fecha_ingreso" Type="date" />
+          <Property Name="salario" Type="float" />
+          <Property Name="estatus" Type="bit" />
+        </EntityType>
+        <Association Name="cargo_empleado">
+          <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cargo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="cargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="departamento_empleado">
+          <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departamento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Mantenimiento_modelStoreContainer">
+          <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departamento" EntityType="Self.departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="cargo_empleado" Association="Self.cargo_empleado">
+            <End Role="cargo" EntitySet="cargo" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="departamento_empleado" Association="Self.departamento_empleado">
+            <End Role="departamento" EntitySet="departamento" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Mantenimiento_model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cargo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cargo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="empleadoes" Relationship="Self.cargo_empleado" FromRole="cargo" ToRole="empleado" />
+        </EntityType>
+        <EntityType Name="departamento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="empleadoes" Relationship="Self.departamento_empleado" FromRole="departamento" ToRole="empleado" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="departamento" Type="Int32" />
+          <Property Name="cargo" Type="Int32" />
+          <Property Name="fecha_ingreso" Type="DateTime" Precision="0" />
+          <Property Name="salario" Type="Double" />
+          <Property Name="estatus" Type="Boolean" />
+          <NavigationProperty Name="cargo1" Relationship="Self.cargo_empleado" FromRole="empleado" ToRole="cargo" />
+          <NavigationProperty Name="departamento1" Relationship="Self.departamento_empleado" FromRole="empleado" ToRole="departamento" />
+        </EntityType>
+        <Association Name="cargo_empleado">
+          <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cargo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="cargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="departamento_empleado">
+          <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departamento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hubhumanoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cargoes" EntityType="Self.cargo" />
+          <EntitySet Name="departamentoes" EntityType="Self.departamento" />
+          <EntitySet Name="empleadoes" EntityType="Self.empleado" />
+          <AssociationSet Name="cargo_empleado" Association="Self.cargo_empleado">
+            <End Role="cargo" EntitySet="cargoes" />
+            <End Role="empleado" EntitySet="empleadoes" />
+          </AssociationSet>
+          <AssociationSet Name="departamento_empleado" Association="Self.departamento_empleado">
+            <End Role="departamento" EntitySet="departamentoes" />
+            <End Role="empleado" EntitySet="empleadoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Mantenimiento_modelStoreContainer" CdmEntityContainer="hubhumanoEntities1">
+          <EntitySetMapping Name="cargoes">
+            <EntityTypeMapping TypeName="Mantenimiento_model.cargo">
+              <MappingFragment StoreEntitySet="cargo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cargo1" ColumnName="cargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentoes">
+            <EntityTypeMapping TypeName="Mantenimiento_model.departamento">
+              <MappingFragment StoreEntitySet="departamento">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleadoes">
+            <EntityTypeMapping TypeName="Mantenimiento_model.empleado">
+              <MappingFragment StoreEntitySet="empleado">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
