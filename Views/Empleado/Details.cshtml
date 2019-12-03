@@ -3,15 +3,14 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<br />
+<h2>Detalles de empleado:</h2>
 
 <div>
-    <h4>empleado</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.codigo)
+           Codigo:
         </dt>
 
         <dd>
@@ -19,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre:
         </dt>
 
         <dd>
@@ -27,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.apellido)
+            Apellido:
         </dt>
 
         <dd>
@@ -35,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.telefono)
+            Telefono:
         </dt>
 
         <dd>
@@ -43,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fecha_ingreso)
+            Fecha de ingreso:
         </dt>
 
         <dd>
@@ -51,7 +50,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.salario)
+            Salario:
         </dt>
 
         <dd>
@@ -59,7 +58,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.estatus)
+            Estatus:
         </dt>
 
         <dd>
@@ -67,7 +66,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cargo1.cargo1)
+            Cargo:
         </dt>
 
         <dd>
@@ -75,7 +74,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.departamento1.codigo)
+            Codigo:
         </dt>
 
         <dd>
@@ -85,6 +84,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>
