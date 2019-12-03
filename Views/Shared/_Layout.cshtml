@@ -3,36 +3,44 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title Hub Humano</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </head>
-<body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow fixed-top" style="background-color:rgb(102, 73, 50)">
-        <a class="navbar-brand" href="#">
-            <img src="/" width="30" height="30" class="d-inline-block align-top" alt="">
-            Bootstrap
-        </a>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="#">Features</a>
-            <a class="p-2 text-dark" href="#">Enterprise</a>
-            <a class="p-2 text-dark" href="#">Support</a>
-            <a class="p-2 text-dark" href="#">Pricing</a>
-        </nav>
-    </div>
-    <script>
-        $(window).scroll(function(e) {
-
-    // add/remove class to navbar when scrolling to hide/show
-    var scroll = $(window).scrollTop();
-    if (scroll >= 150) {
-        $('.navbar').addClass("navbar-hide");
-    } else {
-        $('.navbar').removeClass("navbar-hide");
+<style>
+    body{
+        padding-top:78px;
     }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top"style="background-color:rgb(102, 73, 50);">
+        <a class="navbar-brand" href="/Home/Index" style="color:rgb(0,176,80);font-family:'Monotype Corsiva';font-size:30px;font-weight:bold;"><img src="~/imgs/logo.png" style="width:70px;max-height:70px;"/>Hub Humano</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-});
-    </script>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-5">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Index" style="color:rgb(242, 255, 240);">Mantenimiento</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Index" style="color:rgb(242, 255, 240);">Procesos</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Index" style="color:rgb(242, 255, 240);">Informes</a>
+                </li>               
+            </ul>
+            <!--<form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>-->
+        </div>
+    </nav>
+
 
     <div class="container body-content">
         @RenderBody()
@@ -42,8 +50,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>
