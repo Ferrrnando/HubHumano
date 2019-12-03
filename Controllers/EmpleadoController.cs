@@ -17,6 +17,7 @@ namespace HubHumano.Controllers
         // GET: Empleado
         public ActionResult Index()
         {
+
             var empleadoes = db.empleadoes.Include(e => e.cargo1).Include(e => e.departamento1);
             return View(empleadoes.ToList());
         }
