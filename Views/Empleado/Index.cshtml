@@ -3,108 +3,108 @@
 @{
     ViewBag.Title = "Mantenimiento - Empleados";
 }
-    <link href="~/css/empleado_index.css" rel="stylesheet" runat="server" type="text/css" />
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<link href="~/css/empleado_index.css" rel="stylesheet" runat="server" type="text/css" />
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Empleado/Index">Empleados <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Departamento/Index">Departamentos <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Cargo/Index">Cargos <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            </div>
-            </nav>
-    </header>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Empleado/Index">Empleados <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Departamento/Index">Departamentos <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Cargo/Index">Cargos <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <!-- The sidebar -->
-    
-        <!---->
+<!---->
 
-        <br />
+<br />
 
-        <h2>Empleados</h2>
+<h2>Empleados</h2>
+<hr />
 
-        <br />
-        <p>
-            @Html.ActionLink("Crear Empleado", "Create", "", new { @class = "btn btn-outline-primary" })
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    Codigo
-                </th>
-                <th>
-                    Nombre
-                </th>
-                <th>
-                    Apellido
-                </th>
-                <th>
-                    Telefono
-                </th>
-                <th>
-                    Fecha de Ingreso
-                </th>
-                <th>
-                    Salario
-                </th>
-                <th>
-                    Estatus
-                </th>
-                <th>
-                    Cargo
-                </th>
-                <th>
-                    Departamento
-                </th>
-                <th></th>
-            </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.codigo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.apellido)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.telefono)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fecha_ingreso)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.salario)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.estatus)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.cargo1.cargo1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.departamento1.codigo)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
-                        @Html.ActionLink("Ver", "Details", new { id = item.id }) |
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
-                    </td>
-                </tr>
-            }
+<p>
+    @Html.ActionLink("Crear Empleado", "Create", "", new { @class = "btn btn-outline-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Codigo
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Fecha de Ingreso
+        </th>
+        <th>
+            Salario
+        </th>
+        <th>
+            Estatus
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th></th>
+    </tr>
 
-        </table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_ingreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.salario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cargo1.cargo1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departamento1.codigo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
