@@ -19,10 +19,11 @@
                         <a class="nav-link" href="/Departamento/Index">Departamentos <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cargos <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/Cargo/Index">Cargos <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
+            </nav>
     </header>
 <!-- The sidebar -->
     
@@ -34,7 +35,7 @@
 
         <br />
         <p>
-            @Html.ActionLink("Crear nuevo", "Create")
+            @Html.ActionLink("Crear Empleado", "Create", "", new { @class = "btn btn-outline-primary" })
         </p>
         <table class="table">
             <tr>

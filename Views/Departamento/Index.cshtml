@@ -22,20 +22,22 @@
                 </li>
             </ul>
         </div>
+        </nav>
 </header>
 <!-- The sidebar -->
-<h2>Departamentos</h2>
+<br />
+<h2>Departamentos:</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a>
+    @Html.ActionLink("Crear Departamento", "Create", "", new {@class = "btn btn-outline-primary" })
+</a>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.codigo)
+            Codigo:
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre:
         </th>
         <th></th>
     </tr>
@@ -50,9 +52,9 @@
                 @Html.DisplayFor(modelItem => item.nombre)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
             </td>
         </tr>
     }
