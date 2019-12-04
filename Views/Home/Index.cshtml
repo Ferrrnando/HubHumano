@@ -4,7 +4,7 @@
 <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css"/>
 <style>
 </style>
-<br /><br />
+<br />
 <div class="jumbotron" style="background-color:rgba(255, 144, 0, 0.12);">
     
     <h1 style="text-align:center; font-family:'Monotype Corsiva';">Hub Humano</h1>
@@ -12,27 +12,72 @@
     la cual cuenta con herramientas como mantenimientos, procesos e informes.
     Es una aplicación web resposiva por lo cual usted puede acceder desde cualquier dispositivo con navegador web
     y consultar las herramientas que desee.</p>
-    <p><a href="https://asp.net" class="btn btn-success btn-sm">Acerca de &raquo;</a></p>
+    <p><a href="/Home/About" class="btn btn-success btn-sm">Acerca de &raquo;</a></p>
 </div>
+<br />
+<style>
+    .card:hover {
+        -webkit-box-shadow:-10px 9px 40px -80px rgba(0, 0, 0, 0.70);
+        -moz-box-shadow:-10px 9px 40px -12px rgba(0, 0, 0, 0.70);
+        box-shadow:-10px 9px 40px -12px rgba(0, 0, 0, 0.70);
+    }
+</style>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="row" style="align-items:center;">
+    <div class="col-md-4">     
+        <div class="card" style="width: 18rem;">
+            <img src="~/imgs/mantenimiento.png" class="card-img-top" alt="..." style="width:auto;height:180px">
+            <div class="card-body" style="text-align:center;">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a class="btn btn-success">Procesos</a>
+            </div>
+            
+        </div>
+        
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        
+            <div class="card" style="width: 18rem;">
+                <img src="~/imgs/proceso.png" class="card-img-top" alt="..." style="width:auto;height:180px">
+                <div class="card-body" style="text-align:center">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-success">Procesos</a>
+                </div>
+                
+            </div>
+        
+
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="card" style="width: 18rem;">
+            <img src="~/imgs/informe.png" class="card-img-top" alt="..." style="width:auto;height:180px">
+            <div class="card-body" style="text-align:center;">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a class="btn btn-success">Procesos</a>
+            </div>
+        </div>
+        
+
+
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+
+        $('.col-md-4').hover(
+            // trigger when mouse hover
+            function () {
+                $(this).animate({
+                    marginTop: "-=1%",
+                }, 200);
+            },
+
+            // trigger when mouse out
+            function () {
+                $(this).animate({
+                    marginTop: "0%"
+                }, 200);
+            }
+        );
+    });
+</script>
